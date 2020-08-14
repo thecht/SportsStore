@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SportsStoreMVC.Models;
 using SportsStoreMVC.Models.ViewModels;
+using System;
 using System.Linq;
 
 namespace SportsStoreMVC.Controllers
@@ -23,6 +24,7 @@ namespace SportsStoreMVC.Controllers
                             .OrderBy(p => p.ProductID)
                             .Skip((productPage - 1) * PageSize)
                             .Take(PageSize);
+
             var pageInfo = new PagingInfo
             {
                 CurrentPage = productPage,
@@ -34,7 +36,7 @@ namespace SportsStoreMVC.Controllers
             {
                 Products = products,
                 PagingInfo = pageInfo
-            };
+            };                     
 
             return View(viewModel);
         }
