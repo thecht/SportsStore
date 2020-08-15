@@ -61,3 +61,11 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+###############################################################################
+# static code assets
+#
+# vendored code should be ignored when determining project language.
+###############################################################################
+sportsstoremvc/wwwroot/* linguist-vendored
+
