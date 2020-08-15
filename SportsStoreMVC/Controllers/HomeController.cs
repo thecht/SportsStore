@@ -36,8 +36,9 @@ namespace SportsStoreMVC.Controllers
             var viewModel = new ProductsListViewModel
             {
                 Products = products,
-                PagingInfo = pageInfo
-            };                     
+                PagingInfo = pageInfo,
+                CurrentCategory = category
+            };
 
             return View(viewModel);
         }
