@@ -30,14 +30,17 @@ namespace SportsStoreMVC.Controllers
             {
                 CurrentPage = productPage,
                 ItemsPerPage = PageSize,
-                TotalItems = repository.Products.Count()
+                TotalItems = category == null ?
+                             repository.Products.Count() :
+                             repository.Products.Where(e => e.Category == category).Count()           
             };
 
             var viewModel = new ProductsListViewModel
             {
                 Products = products,
-                PagingInfo = pageInfo
-            };                     
+                PagingInfo = pageInfo,
+                CurrentCategory = category
+            };
 
             return View(viewModel);
         }

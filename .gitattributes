@@ -67,5 +67,5 @@
 #
 # vendored code should be ignored when determining project language.
 ###############################################################################
-sportsstoremvc/wwwroot/* linguist-vendored
+SportsStoreMVC/wwwroot/* linguist-vendored
 
