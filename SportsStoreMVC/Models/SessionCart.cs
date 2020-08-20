@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 using SportsStoreMVC.Infrastructure;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SportsStoreMVC.Models
 {
@@ -16,7 +13,7 @@ namespace SportsStoreMVC.Models
 
         public static Cart GetCart(IServiceProvider services)
         {
-            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+            ISession session = services.GetRequiredService<IHttpContextAccessor>().HttpContext.Session;
             SessionCart cart = session?.GetJson<SessionCart>("Cart") ?? new SessionCart();
             cart.Session = session;
             return cart;
