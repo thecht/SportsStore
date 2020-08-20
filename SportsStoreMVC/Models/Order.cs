@@ -13,7 +13,7 @@ namespace SportsStoreMVC.Models
         public int OrderID { get; set; }
         
         [BindNever]
-        public ICollection<CartLine> Line { get; set; }
+        public ICollection<CartLine> Lines { get; set; }
 
         [Required(ErrorMessage = "Please enter a name.")]
         public string Name { get; set; }
