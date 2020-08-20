@@ -31,7 +31,7 @@ namespace SportsStoreMVC.Models
 
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Please enter a county name.")]
+        [Required(ErrorMessage = "Please enter a country name.")]
         public string Country { get; set; }
 
         public bool GiftWrap { get; set; }
