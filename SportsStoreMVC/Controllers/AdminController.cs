@@ -40,5 +40,6 @@ namespace SportsStoreMVC.Controllers
                 return View(product);
             }
         }
+
     }
 }
