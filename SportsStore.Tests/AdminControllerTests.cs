@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Moq;
 using SportsStoreMVC.Controllers;
 using SportsStoreMVC.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xunit;
 
 namespace SportsStore.Tests
@@ -132,6 +130,29 @@ namespace SportsStore.Tests
             mock.Verify(m => m.SaveProduct(It.IsAny<Product>()), Times.Never());
             // Assert - check the method result type
             Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void Can_Delete_Valid_Products()
+        {
+            // Arrange
+            Product prod = new Product { ProductID = 2, Name = "Test" };
+
+            Mock<IStoreRepository> mock = new Mock<IStoreRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[]
+            {
+                new Product { ProductID = 1, Name = "P1" },
+                prod,
+                new Product { ProductID = 3, Name = "P3" }
+            }.AsQueryable<Product>());
+
+            AdminController target = new AdminController(mock.Object);
+
+            // Act
+            target.Delete(prod.ProductID);
+
+            // Assert
+            mock.Verify(m => m.DeleteProduct(prod.ProductID));
         }
     }
 }
