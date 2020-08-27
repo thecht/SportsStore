@@ -32,6 +32,7 @@ namespace SportsStoreMVC.Models
                     dbEntry.Category = product.Category;
                 }
             }
+            context.SaveChanges();
         }
 
     }
