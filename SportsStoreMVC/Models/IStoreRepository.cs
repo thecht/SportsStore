@@ -8,5 +8,7 @@ namespace SportsStoreMVC.Models
     public interface IStoreRepository
     {
         IQueryable<Product> Products { get; }
+        public void SaveProduct(Product product);
+        public Product DeleteProduct(long productID);
     }
 }
